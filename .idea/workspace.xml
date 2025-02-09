@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="edee47c4-4f82-4abf-a4a2-f6c924e16e6d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/birdy/Bird.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/birdy/Bot.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/birdy/BotDisplay.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/birdy/BotGame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/birdy/Game.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/birdy/GameDisplay.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/birdy/GameState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/birdy/KeyManaging.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/birdy/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/birdy/Neuron.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/birdy/Pipe.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/birdy/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/birdy/PlayerState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/src.iml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2sp3o9CnkBUJwJCf7nNukmDRxzA" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/totob/Documents/ProjetPerso/birdy&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.189" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.189" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="edee47c4-4f82-4abf-a4a2-f6c924e16e6d" name="Changes" comment="" />
+      <created>1739138860765</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1739138860765</updated>
+      <workItem from="1739138862783" duration="344000" />
+      <workItem from="1739139214119" duration="44000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
