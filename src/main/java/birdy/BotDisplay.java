@@ -64,6 +64,7 @@ public class BotDisplay extends JFrame {
                     bots.add(tmp);
 
                 }
+                generation++;
                 botGame = new BotGame(bots,windowWidth,windowHeight,r);
             }
         });
@@ -109,10 +110,14 @@ public class BotDisplay extends JFrame {
 
     public void drawGame(Graphics g, BotGame game){
         drawPipes(g, game.getPipes());
+        int alive = 0;
         for (int i = 0; i < game.getBots().size(); i++) {
             if (game.getBots().get(i).state == PlayerState.ALIVE) {
                 drawPlayer(g, game.getBots().get(i));
+                alive++;
             }
         }
+        g.drawString("Alive: "+alive, 10, 34);
+        g.drawString("Generation: "+generation, 10, 48);
     }
 }
