@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Main {
     public static void printHelp(){
-        System.out.println("Usage: java [options]");
+        System.out.println("Usage: java [exec][options]");
         System.out.println("Options:");
         System.out.println("\t-h\t\tPrint this message");
         System.out.println("\t-p\t\tPlay the game");
