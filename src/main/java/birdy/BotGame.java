@@ -86,13 +86,20 @@ public class BotGame {
         return bots.stream().anyMatch(b->b.state==PlayerState.ALIVE);
     }
 
-    public Bot findBestBot(){
-        Bot best = bots.get(0);
-        for (int i = 1; i < bots.size(); i++) {
-            if (bots.get(i).getTickCount() > best.getTickCount()){
-                best = bots.get(i);
+    public ArrayList<Bot> findBestBots(){
+        ArrayList<Bot> bestBots = new ArrayList<>(10);
+        for (int i = 0; i < 10; i++) {
+            bestBots.add(bots.get(i));
+        }
+        for (int i = 10; i < bots.size(); i++) {
+            for (int j = 0; j < bestBots.size(); j++) {
+                if (bots.get(i).getTickCount() > bestBots.get(j).getTickCount()){
+                    bestBots.remove(j);
+                    bestBots.add(j,bots.get(i));
+                    break;
+                }
             }
         }
-        return best;
+        return bestBots;
     }
 }

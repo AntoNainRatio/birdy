@@ -5,7 +5,10 @@ import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 public class BotDisplay extends JFrame {
     int windowWidth = 900;
@@ -13,7 +16,8 @@ public class BotDisplay extends JFrame {
     Random rand;
     BotGame botGame;
     int highscore = 0;
-    Neuron bestNeuron;
+    NeuralNetwork bestNetwork;
+    int generation = 0;
 
     public BotDisplay(BotGame bg, Random r, int w, int h) {
         botGame = bg;
@@ -40,17 +44,25 @@ public class BotDisplay extends JFrame {
             botGame.updateGame(rand,windowWidth, windowHeight);
             repaint();
             if (botGame.getStatus() == GameState.ENDED){
-                Bot best = botGame.findBestBot();
-                if (best.getTickCount() > highscore){
-                    highscore = best.getTickCount();
-                    bestNeuron = best.neuron;
-                    System.out.println("New Highscore: " + highscore);
-                    System.out.println(best.neuron);
-                }
+                double mutationRate = Math.max(0.02, 0.2 - (generation * 0.001));
+                ArrayList<Bot> bests = botGame.findBestBots();
+                bests.sort((b1, b2) -> Double.compare(b2.getTickCount(), b1.getTickCount()));
                 ArrayList<Bot> bots = new ArrayList<>();
-                for (int i = 0; i < 1000; i++) {
-                    Bot tmp = new Bot(best.neuron.mutate(-1,1));
+                bots.add(bests.get(0));
+                bots.add(bests.get(1));
+                bots.add(bests.get(2));
+                if (bests.get(0).tickCount > highscore){
+                    highscore = bests.get(0).tickCount;
+                    bestNetwork = bests.get(0).network;
+                    System.out.println("New Best ("+highscore+"): "+bests.get(0).network.toString());
+                }
+                for (int i = 3; i < 1000; i++) {
+                    NeuralNetwork n1 = bests.get(rand.nextInt(10)).network;
+                    NeuralNetwork n2 = bests.get(rand.nextInt(10)).network;
+                    NeuralNetwork child = n1.merge(n2,mutationRate);
+                    Bot tmp = new Bot(child);
                     bots.add(tmp);
+
                 }
                 botGame = new BotGame(bots,windowWidth,windowHeight,r);
             }

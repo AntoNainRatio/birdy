@@ -24,7 +24,8 @@ public class Main {
         int height = 800;
         ArrayList<Bot> bots = new ArrayList<Bot>();
         for (int i = 0; i < 1000; i++) {
-            bots.add(new Bot(new Neuron(r.nextDouble(-1,1),r.nextDouble(-1,1),r.nextDouble(-1,1),r.nextDouble(-1,1),r.nextDouble(-1,1))));
+            NeuralNetwork nn = new NeuralNetwork();
+            bots.add(new Bot(nn));
         }
         BotGame g = new BotGame(bots,width,height,r);
         BotDisplay d = new BotDisplay(g,r,width,height);
