@@ -22,9 +22,7 @@ public class Main {
                 int width = 1000;
                 int height = 800;
                 Player p = new Player();
-                ArrayList<Player> players = new ArrayList<Player>();
-                players.add(p);
-                Game g = new Game(players,width,height,r);
+                Game g = new Game(p,width,height,r);
                 KeyManaging k = new KeyManaging(g);
                 GameDisplay d = new GameDisplay(g,k,r,width,height);
             } else if (args[0].equals("-h")) {

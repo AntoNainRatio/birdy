@@ -39,8 +39,14 @@ public class GameDisplay extends JFrame{
         setVisible(true);
 
         Timer timer = new Timer(20, e -> {
-            game.updateGame(rand,windowWidth, windowHeight);  // Update game logic
-            repaint();  // Redraw the frame
+            game.updateGame(rand,windowWidth, windowHeight);
+            repaint();
+            if (game.getStatus() == GameState.ENDED){
+                game.getPlayer().state = PlayerState.ALIVE;
+                game.getPlayer().setScore(0);
+                game.getPlayer().resetBird();
+                game = new Game(game.getPlayer(),windowWidth,windowHeight,r);
+            }
         });
         timer.start();
         if (game.getStatus() == GameState.ENDED){
@@ -61,9 +67,6 @@ public class GameDisplay extends JFrame{
     }
 
     public void drawPlayer(Graphics g, Player p){
-        
-
-        
         drawBird(g, p.getBird());
         String str = "Score:"+p.getScore();
 
@@ -87,10 +90,8 @@ public class GameDisplay extends JFrame{
 
     public void drawGame(Graphics g, Game game){
         drawPipes(g, game.getPipes());
-        for (int i = 0; i < game.getPlayers().size(); i++) {
-            if (game.getPlayers().get(i).state == PlayerState.ALIVE) {
-                drawPlayer(g, game.getPlayers().get(i));
-            }
+        if (game.getPlayer().state == PlayerState.ALIVE) {
+            drawPlayer(g, game.getPlayer());
         }
     }
 }

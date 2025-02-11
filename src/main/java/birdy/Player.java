@@ -2,7 +2,7 @@ package birdy;
 
 public class Player {
     PlayerState state;
-    private final Bird bird;
+    private Bird bird;
     private int score;
 
     public Player(){
@@ -19,8 +19,16 @@ public class Player {
         return score;
     }
 
+    public void setScore(int score){
+        this.score = score;
+    }
+
     public void setState(PlayerState state){
         this.state = state;
+    }
+
+    public void resetBird(){
+        bird = new Bird();
     }
 
     public void updateScore(){

@@ -5,15 +5,15 @@ import java.util.*;
 import static birdy.BotGame.getString;
 
 public class Game {
-    private ArrayList<Player> players;
+    private Player player;
     private Queue<Pipe> pipes;
     private GameState status;
     int windowWidth;
     int windowHeight;
     Random rand;
 
-    public Game(ArrayList<Player> players,int windowWidth,int windowHeight, Random r) {
-        this.players = players;
+    public Game(Player player,int windowWidth,int windowHeight, Random r) {
+        this.player = player;
         rand = r;
         this.windowWidth = windowWidth;
         this.windowHeight = windowHeight;
@@ -21,11 +21,11 @@ public class Game {
         for (int i = 200; i <= windowWidth; i+=200) {
             pipes.add(new Pipe(i,rand,windowHeight));
         }
-        status = GameState.READY;
+        status = GameState.RUNNIG;
     }
 
-    public List<Player> getPlayers(){
-        return players;
+    public Player getPlayer(){
+        return player;
     }
 
     public GameState getStatus(){
@@ -37,32 +37,27 @@ public class Game {
     }
 
     public String toString(){
-        String res =  "(Game){\n    Players:{\n      ";
-        return getString(res, players.toArray(), pipes, status);
+        String res =  "(Game){\n    "+player.toString()+"\n      ";
+        return res + pipes.toString() + "\n   Status: "+status.toString()+"\n}";
     }
 
     public void updateGame(Random r,int windowWidth, int windowHeight) {
         pipes.forEach(p -> p.update(3));
-        players.forEach(p-> {
-            if (p.state == PlayerState.ALIVE){
-                p.updatePlayer(windowWidth,windowHeight);
-            }
-        });
+        player.updatePlayer(windowWidth, windowHeight);
         if (!pipes.isEmpty()) {
-            players.forEach(p -> p.handleCollision(pipes.peek()));
+            player.handleCollision(pipes.peek());
         }
         if (!pipes.isEmpty() && (pipes.peek().getX()+pipes.peek().getWidth() < 0)){
             pipes.poll();
             pipes.add(new Pipe(windowWidth,r, windowHeight));
-            players.forEach(Player::updateScore);
+            player.updateScore();
         }
         if (!checkAlive()){
-            System.out.println("Game over");
             status = GameState.ENDED;
         }
     }
 
     public boolean checkAlive(){
-        return players.stream().anyMatch(p->p.state==PlayerState.ALIVE);
+        return player.state == PlayerState.ALIVE;
     }
 }

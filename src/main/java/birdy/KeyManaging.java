@@ -18,8 +18,8 @@ public class KeyManaging implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_SPACE && game.getPlayers().get(0).state == PlayerState.ALIVE){
-            game.getPlayers().get(0).getBird().flap();
+        if (e.getKeyCode() == KeyEvent.VK_SPACE && game.getPlayer().state == PlayerState.ALIVE){
+            game.getPlayer().getBird().flap();
         }
     }
 
