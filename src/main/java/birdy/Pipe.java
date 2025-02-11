@@ -10,7 +10,7 @@ public class Pipe {
     private final int holeSize;
 
     public Pipe(int x, Random r, int height){
-        this.x = x + r.nextInt(30);
+        this.x = x;
         holeSize = 100;
         width = 30;
         int minY = holeSize * 2;
